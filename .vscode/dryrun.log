@@ -1,0 +1,10 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/andrew/Projects/osdev/bootloader'
+nasm src/bootloader.asm -f bin -o build/bootloader.bin
+ 
+nasm src/stage2.asm -f elf -o build/stage2.o
+/home/andrew/opt/cross/bin/i386-elf-gcc -ffreestanding -m32 -c "src/kernel.c" -o "build/kernel.o"
+/home/andrew/opt/cross/bin/i386-elf-ld -o build/kernel.tmp -Ttext 0x7e00 build/stage2.o build/kernel.o
+objcopy -O binary build/kernel.tmp build/kernel.bin
+make: Leaving directory '/home/andrew/Projects/osdev/bootloader'
+ 

@@ -1,0 +1,36 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "clean, build and run",
+            "type": "shell",
+            "command": "cd ${cwd};make",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "type": "process",
+            "label": "run",
+            "command": "/usr/bin/qemu-system-x86_64",  // <-- your shell here
+            "args": [
+                "-cpu",
+                "qemu32",
+                "-nographic",  // login shell for bash
+                "-hda",
+                "${cwd}/build/bootloader.bin",
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "echo": false,  // silence "Executing task ..."
+                "focus": true,
+                "group": "run",  // some arbitrary name for the group
+                "panel": "dedicated"
+            }
+        }
+    ]
+}
