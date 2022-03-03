@@ -20,7 +20,6 @@
             "args": [
                 "-cpu",
                 "qemu32",
-                "-nographic",  // login shell for bash
                 "-hda",
                 "${cwd}/build/bootloader.bin",
             ],
