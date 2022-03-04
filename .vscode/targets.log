@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Mar  2 08:51:30 2022
+# Make data base, printed on Thu Mar  3 16:03:12 2022
 
 # Variables
 
@@ -17,7 +17,7 @@ LC_ALL = C
 # environment
 NO_AT_BRIDGE = 1
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-fa70adb5-9e91-4f79-b094-7404d426b57c.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-fbc26382-00d4-4ffd-b9c3-8c9e621a3280.sock
 # environment
 VSCODE_CWD = /home/andrew
 # environment
@@ -31,7 +31,6 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
 .VARIABLES := 
 # environment
- 
 PWD = /home/andrew/Projects/osdev/bootloader
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
@@ -84,7 +83,7 @@ ZSH = /home/andrew/.oh-my-zsh
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 11989
+VSCODE_PID = 62039
 # environment
 XDG_SESSION_TYPE = tty
 # automatic
@@ -188,7 +187,7 @@ ELECTRON_NO_ATTACH_CONSOLE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink guile load
 # variable set hash-table stats:
-# Load=88/1024=9%, Rehash=0, Collisions=4/118=3%
+# Load=88/1024=9%, Rehash=0, Collisions=4/121=3%
 
 # Pattern-specific Variable Values
 
@@ -196,9 +195,9 @@ ELECTRON_NO_ATTACH_CONSOLE = 1
 
 # Directories
 
-# . (device 40, inode 4131341): 6 files, no impossibilities.
+# . (device 40, inode 4131341): 8 files, no impossibilities.
 
-# 6 files, no impossibilities in 1 directories.
+# 8 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -208,15 +207,14 @@ ELECTRON_NO_ATTACH_CONSOLE = 1
 
 # Not a target:
 src/stage2.asm:
-#  Implicit rule search has been done.
-#  Last modified 2022-03-01 19:14:14.43338871
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-01 19:38:19.848188654
+#  Last modified 2022-03-02 18:58:34.582854857
 #  File has been updated.
 #  Successfully updated.
 
@@ -229,18 +227,16 @@ clean:
 
 build/kernel.o: src/kernel.c
 #  Implicit rule search has not been done.
-#  Last modified 2022-03-01 19:38:26.272329541
-#  File has been updated.
-#  Successfully updated.
+#  Modification time never checked.
+#  File has not been updated.
 #  recipe to execute (from 'Makefile', line 14):
-	/home/andrew/opt/cross/bin/i386-elf-gcc -ffreestanding -m32 -c "src/kernel.c" -o "build/kernel.o"
+	/home/andrew/opt/cross/bin/i686-elf-gcc -ffreestanding -m32 -c "src/kernel.c" -o "build/kernel.o"
 
 # Not a target:
 src/kernel.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-03-01 19:14:10.761319207
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .DEFAULT:
@@ -253,54 +249,80 @@ all: build/bootloader.bin build/kernel.bin
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
 
 build/kernel.bin: build/stage2.o build/kernel.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-03-01 19:38:26.278329673
-#  File has been updated.
-#  Successfully updated.
+#  Modification time never checked.
+#  File has not been updated.
 #  recipe to execute (from 'Makefile', line 4):
-	/home/andrew/opt/cross/bin/i386-elf-ld -o build/kernel.tmp -Ttext 0x7e00 build/stage2.o build/kernel.o
+	/home/andrew/opt/cross/bin/i686-elf-ld -o build/kernel.tmp -Ttext 0x7e00 build/stage2.o build/kernel.o
 	objcopy -O binary build/kernel.tmp build/kernel.bin
 
 # Not a target:
 src/bootloader.asm:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-01 22:06:43.665508764
+#  Last modified 2022-03-02 23:05:25.045989355
 #  File has been updated.
 #  Successfully updated.
 
 build/bootloader.bin: src/bootloader.asm
 #  Implicit rule search has not been done.
-#  Last modified 2022-03-01 22:06:46.582569175
+#  Implicit/static pattern stem: ''
+#  Last modified 2022-03-02 19:51:16.524352375
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := build/bootloader.bin
+# automatic
+# * := 
+ 
+# automatic
+# < := src/bootloader.asm
+# automatic
+# + := src/bootloader.asm
+# automatic
+# % := 
+# automatic
+# ^ := src/bootloader.asm
+# automatic
+# ? := src/bootloader.asm
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
 #  recipe to execute (from 'Makefile', line 8):
 	nasm src/bootloader.asm -f bin -o build/bootloader.bin
 
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 build/stage2.o: src/stage2.asm
 #  Implicit rule search has not been done.
-#  Last modified 2022-03-01 19:38:26.264329366
-#  File has been updated.
-#  Successfully updated.
+#  Modification time never checked.
+#  File has not been updated.
 #  recipe to execute (from 'Makefile', line 11):
 	nasm src/stage2.asm -f elf -o build/stage2.o
 
 # files hash-table stats:
-# Load=12/1024=1%, Rehash=0, Collisions=0/34=0%
+# Load=12/1024=1%, Rehash=0, Collisions=0/35=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 19 / storage = 208 B / avg = 10 B
-# current buf: size = 8162 B / used = 208 B / count = 19 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 21 / storage = 224 B / avg = 10 B
+# current buf: size = 8162 B / used = 224 B / count = 21 / avg = 10 B
 
-# strcache performance: lookups = 34 / hit rate = 44%
+# strcache performance: lookups = 37 / hit rate = 43%
 # hash-table stats:
-# Load=19/8192=0%, Rehash=0, Collisions=0/34=0%
-# Finished Make data base on Wed Mar  2 08:51:30 2022
+# Load=21/8192=0%, Rehash=0, Collisions=0/37=0%
+# Finished Make data base on Thu Mar  3 16:03:12 2022
 
  
