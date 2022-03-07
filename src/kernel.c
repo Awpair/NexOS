@@ -99,6 +99,8 @@ extern void main()
     return;
 }
 
+// Test
+
 extern void panic()
 {
     set_cursor(0,VGA_HEIGHT-1);
