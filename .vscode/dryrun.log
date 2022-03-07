@@ -1,7 +1,5 @@
-make --dry-run --always-make --keep-going --print-directory
+make --dry-run --keep-going --print-directory
 make: Entering directory '/home/andrew/Projects/osdev/bootloader'
-nasm src/bootloader.asm -f bin -o build/bootloader.tmp
-nasm src/asm/extended.asm -f bin -o build/extended.tmp
-cat build/bootloader.tmp build/extended.tmp > build/bootloader.bin
+make: Nothing to be done for 'all'.
 make: Leaving directory '/home/andrew/Projects/osdev/bootloader'
  

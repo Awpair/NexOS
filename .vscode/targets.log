@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Mar  7 01:13:42 2022
+# Make data base, printed on Mon Mar  7 11:09:48 2022
 
 # Variables
 
@@ -17,7 +17,7 @@ LC_ALL = C
 # environment
 NO_AT_BRIDGE = 1
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-edf57bfa-5e06-40ca-9c02-d6d3cd7e5f9a.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-517c4977-ce74-4597-8102-046c0c99321f.sock
 # environment
 VSCODE_CWD = /home/andrew
 # environment
@@ -80,10 +80,11 @@ MAKEFILE_LIST := Makefile
 @F = $(notdir $@)
 # environment
 ZSH = /home/andrew/.oh-my-zsh
+ 
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 9252
+VSCODE_PID = 6145
 # environment
 XDG_SESSION_TYPE = tty
 # automatic
@@ -123,7 +124,7 @@ MOTD_SHOWN = pam
 # automatic
 ^F = $(notdir $^)
 # environment
-INVOCATION_ID = c470f5e7b5104e45a9281ee3dc42bfe4
+INVOCATION_ID = ba7b2eff8fb9497c8cd7d22eb5ab5517
 # environment
 VSCODE_LOG_NATIVE = false
 # automatic
@@ -147,7 +148,7 @@ XDG_VTNR = 1
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 713
+SYSTEMD_EXEC_PID = 806
 # environment
 DISPLAY = :0
 # environment
@@ -195,7 +196,7 @@ ELECTRON_NO_ATTACH_CONSOLE = 1
 
 # Directories
 
-# . (device 41, inode 4131341): 8 files, no impossibilities.
+# . (device 40, inode 4131341): 8 files, no impossibilities.
 
 # 8 files, no impossibilities in 1 directories.
 
@@ -205,49 +206,65 @@ ELECTRON_NO_ATTACH_CONSOLE = 1
 
 # Files
 
-build/extended.tmp: src/asm/extended.asm src/asm/gdt.asm
-#  Implicit rule search has not been done.
-#  Last modified 2022-03-07 01:07:25.066238912
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 11):
-	nasm src/asm/extended.asm -f bin -o build/extended.tmp
-
-# Not a target:
-src/asm/extended.asm:
-#  Implicit rule search has been done.
-#  Last modified 2022-03-07 01:07:20.705069063
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-src/asm/gdt.asm:
-#  Implicit rule search has been done.
-#  Last modified 2022-03-07 00:56:59.581054416
-#  File has been updated.
-#  Successfully updated.
-
 build/bootloader.tmp: src/bootloader.asm
 #  Implicit rule search has not been done.
-#  Last modified 2022-03-07 01:04:45.868091735
+#  Last modified 2022-03-07 11:06:35.253152814
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 7):
+#  recipe to execute (from 'Makefile', line 19):
 	nasm src/bootloader.asm -f bin -o build/bootloader.tmp
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-07 00:56:11.891436713
+#  Last modified 2022-03-07 11:07:50.4336241
 #  File has been updated.
 #  Successfully updated.
+
+build/kernel_entry.o: src/asm/kernel_entry.asm
+#  Implicit rule search has not been done.
+#  Last modified 2022-03-07 11:05:27.770817557
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 13):
+	nasm "src/asm/kernel_entry.asm" -f elf -o "build/kernel_entry.o"
 
 clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 14):
+#  recipe to execute (from 'Makefile', line 25):
 	rm -rf build/*
+
+build/zeroes.bin: src/asm/zeroes.asm
+#  Implicit rule search has not been done.
+#  Last modified 2022-03-07 11:05:27.787817895
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 22):
+	nasm src/asm/zeroes.asm -f bin -o "build/zeroes.bin"
+
+build/kernel.o: src/kernel.c
+#  Implicit rule search has not been done.
+#  Last modified 2022-03-07 11:05:27.764817438
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 10):
+	/home/andrew/opt/cross/bin/i686-elf-gcc -ffreestanding -m32 -g -c "src/kernel.c" -o "build/kernel.o"
+
+# Not a target:
+src/asm/zeroes.asm:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-07 10:43:48.352226505
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/kernel.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-07 10:44:51.834398302
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 .DEFAULT:
@@ -255,7 +272,7 @@ clean:
 #  Modification time never checked.
 #  File has not been updated.
 
-all: build/bootloader.bin
+all: build/system.bin
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
@@ -263,35 +280,57 @@ all: build/bootloader.bin
 #  Successfully updated.
 
 # Not a target:
-src/bootloader.asm:
+src/asm/kernel_entry.asm:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-07 01:04:45.509078009
+#  Last modified 2022-03-07 11:04:37.508855912
 #  File has been updated.
 #  Successfully updated.
 
-build/bootloader.bin: build/bootloader.tmp build/extended.tmp
+build/kernel.bin: build/kernel.o build/kernel_entry.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-03-07 01:07:25.06923903
+#  Last modified 2022-03-07 11:05:27.776817677
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 7):
+	/home/andrew/opt/cross/bin/i686-elf-ld -o "build/kernel.bin" -Ttext 0x1000 "build/kernel_entry.o" "build/kernel.o" --oformat binary
+
+# Not a target:
+src/bootloader.asm:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-07 11:06:34.848144844
+#  File has been updated.
+#  Successfully updated.
+
+build/bootloader.bin: build/bootloader.tmp
+#  Implicit rule search has not been done.
+#  Last modified 2022-03-07 11:06:35.256152873
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 16):
+	cat build/bootloader.tmp > build/bootloader.bin
+
+build/system.bin: build/kernel.bin build/bootloader.bin build/zeroes.bin
+#  Implicit rule search has not been done.
+#  Last modified 2022-03-07 11:06:35.259152932
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 4):
-	cat build/bootloader.tmp build/extended.tmp > build/bootloader.bin
+	cat build/bootloader.bin build/kernel.bin build/zeroes.bin > build/system.bin
 
 # files hash-table stats:
-# Load=11/1024=1%, Rehash=0, Collisions=0/31=0%
+# Load=16/1024=2%, Rehash=0, Collisions=0/45=0%
 # VPATH Search Paths
 
- 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 20 / storage = 226 B / avg = 11 B
-# current buf: size = 8162 B / used = 226 B / count = 20 / avg = 11 B
+# strcache buffers: 1 (0) / strings = 25 / storage = 314 B / avg = 12 B
+# current buf: size = 8162 B / used = 314 B / count = 25 / avg = 12 B
 
-# strcache performance: lookups = 33 / hit rate = 39%
+# strcache performance: lookups = 46 / hit rate = 45%
 # hash-table stats:
-# Load=20/8192=0%, Rehash=0, Collisions=0/33=0%
-# Finished Make data base on Mon Mar  7 01:13:42 2022
+# Load=25/8192=0%, Rehash=0, Collisions=0/46=0%
+# Finished Make data base on Mon Mar  7 11:09:48 2022
 
  
