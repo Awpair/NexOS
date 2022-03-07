@@ -4,6 +4,8 @@ static const int VGA_WIDTH = 80;
 static const int VGA_HEIGHT = 25;
 static uint16_t* const VGA_MEMORY = (uint16_t*) 0xB8000;
 
+uint8_t color = 0x0f;
+
 struct cursor 
 {
     uint8_t x;
@@ -29,7 +31,7 @@ void print( const char *string)
     while( *string != 0 )
     {
         *video++ = *string++;
-        *video++ = 0x0f;
+        *video++ = color;
         cursor.x++;
     }
 }
@@ -87,8 +89,24 @@ void update_cursor()
 
 extern void main()
 {
+    set_cursor(0, VGA_HEIGHT-1);
+    print("RUNNING");
+    set_cursor(0,0);
     println("Hello, world!");
     print("Hello, all!");
     disable_cursor();
+    while (1) {};
     return;
+}
+
+extern void panic()
+{
+    set_cursor(0,VGA_HEIGHT-1);
+    for (int i = 0; i < VGA_WIDTH; i++)
+    {
+        print(" ");
+    }
+    set_cursor(0,VGA_HEIGHT-1);
+    color = 0x08;
+    println("DEAD");
 }
