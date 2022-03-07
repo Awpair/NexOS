@@ -15,6 +15,8 @@ call sprint
 
 jmp $
 
+; TODO enter 32 bit protected mode
+
 %include "src/asm/print.asm"
 
 times 2048-($-$$) db 0
