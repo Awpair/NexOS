@@ -48,6 +48,6 @@ print_str_pm_return:
 %include "src/asm/print.asm"
 %include "src/asm/gdt.asm"
 
-msg db "Hello, world!",0
+msg db "Successfully landed in 32-bit protected mode",0
 
 times 2048-($-$$) db 0
