@@ -1,4 +1,4 @@
-all: build/system.bin
+all: build build/system.bin
 
 build/system.bin: build/kernel.bin build/bootloader.bin build/zeroes.bin
 	cat build/bootloader.bin build/kernel.bin build/zeroes.bin > build/system.bin
@@ -20,6 +20,9 @@ build/bootloader.tmp: src/bootloader.asm
 
 build/zeroes.bin: src/asm/zeroes.asm
 	nasm src/asm/zeroes.asm -f bin -o "build/zeroes.bin"
+
+build:
+	mkdir build
 
 clean:
 	rm -rf build/*

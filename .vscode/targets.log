@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Mar  7 11:09:48 2022
+# Make data base, printed on Mon Mar  7 11:28:51 2022
 
 # Variables
 
@@ -17,7 +17,7 @@ LC_ALL = C
 # environment
 NO_AT_BRIDGE = 1
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-517c4977-ce74-4597-8102-046c0c99321f.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-80b5f4a0-d633-4b4f-95ac-d248aea965ff.sock
 # environment
 VSCODE_CWD = /home/andrew
 # environment
@@ -80,11 +80,10 @@ MAKEFILE_LIST := Makefile
 @F = $(notdir $@)
 # environment
 ZSH = /home/andrew/.oh-my-zsh
- 
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 6145
+VSCODE_PID = 15032
 # environment
 XDG_SESSION_TYPE = tty
 # automatic
@@ -196,9 +195,9 @@ ELECTRON_NO_ATTACH_CONSOLE = 1
 
 # Directories
 
-# . (device 40, inode 4131341): 8 files, no impossibilities.
+# . (device 40, inode 4131341): 10 files, no impossibilities.
 
-# 8 files, no impossibilities in 1 directories.
+# 10 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -208,7 +207,7 @@ ELECTRON_NO_ATTACH_CONSOLE = 1
 
 build/bootloader.tmp: src/bootloader.asm
 #  Implicit rule search has not been done.
-#  Last modified 2022-03-07 11:06:35.253152814
+#  Last modified 2022-03-07 11:11:15.546568468
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 19):
@@ -223,7 +222,7 @@ Makefile:
 
 build/kernel_entry.o: src/asm/kernel_entry.asm
 #  Implicit rule search has not been done.
-#  Last modified 2022-03-07 11:05:27.770817557
+#  Last modified 2022-03-07 11:11:15.539568335
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 13):
@@ -246,7 +245,7 @@ build/zeroes.bin: src/asm/zeroes.asm
 
 build/kernel.o: src/kernel.c
 #  Implicit rule search has not been done.
-#  Last modified 2022-03-07 11:05:27.764817438
+#  Last modified 2022-03-07 11:23:23.562112384
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 10):
@@ -262,7 +261,7 @@ src/asm/zeroes.asm:
 # Not a target:
 src/kernel.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-07 10:44:51.834398302
+#  Last modified 2022-03-07 11:23:17.560002293
 #  File has been updated.
 #  Successfully updated.
 
@@ -278,17 +277,18 @@ all: build/system.bin
 #  File does not exist.
 #  File has been updated.
 #  Successfully updated.
+ 
 
 # Not a target:
 src/asm/kernel_entry.asm:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-07 11:04:37.508855912
+#  Last modified 2022-03-07 11:10:06.532251212
 #  File has been updated.
 #  Successfully updated.
 
 build/kernel.bin: build/kernel.o build/kernel_entry.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-03-07 11:05:27.776817677
+#  Last modified 2022-03-07 11:23:23.566112458
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 7):
@@ -297,13 +297,13 @@ build/kernel.bin: build/kernel.o build/kernel_entry.o
 # Not a target:
 src/bootloader.asm:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-07 11:06:34.848144844
+#  Last modified 2022-03-07 11:11:15.133560612
 #  File has been updated.
 #  Successfully updated.
 
 build/bootloader.bin: build/bootloader.tmp
 #  Implicit rule search has not been done.
-#  Last modified 2022-03-07 11:06:35.256152873
+#  Last modified 2022-03-07 11:11:15.549568525
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 16):
@@ -311,7 +311,7 @@ build/bootloader.bin: build/bootloader.tmp
 
 build/system.bin: build/kernel.bin build/bootloader.bin build/zeroes.bin
 #  Implicit rule search has not been done.
-#  Last modified 2022-03-07 11:06:35.259152932
+#  Last modified 2022-03-07 11:23:23.570112531
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 4):
@@ -325,12 +325,12 @@ build/system.bin: build/kernel.bin build/bootloader.bin build/zeroes.bin
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 25 / storage = 314 B / avg = 12 B
-# current buf: size = 8162 B / used = 314 B / count = 25 / avg = 12 B
+# strcache buffers: 1 (0) / strings = 27 / storage = 332 B / avg = 12 B
+# current buf: size = 8162 B / used = 332 B / count = 27 / avg = 12 B
 
-# strcache performance: lookups = 46 / hit rate = 45%
+# strcache performance: lookups = 48 / hit rate = 43%
 # hash-table stats:
-# Load=25/8192=0%, Rehash=0, Collisions=0/46=0%
-# Finished Make data base on Mon Mar  7 11:09:48 2022
+# Load=27/8192=0%, Rehash=0, Collisions=0/48=0%
+# Finished Make data base on Mon Mar  7 11:28:51 2022
 
  
