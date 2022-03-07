@@ -1,17 +1,14 @@
-all: build/bootloader.bin build/kernel.bin 
+all: build/bootloader.bin 
 
-build/kernel.bin: build/stage2.o build/kernel.o
-	/home/andrew/opt/cross/bin/i686-elf-ld -o build/kernel.tmp -Ttext 0x7e00 build/stage2.o build/kernel.o
-	objcopy -O binary build/kernel.tmp build/kernel.bin
+build/bootloader.bin: build/bootloader.tmp build/extended.tmp
+	cat build/bootloader.tmp build/extended.tmp > build/bootloader.bin
 
-build/bootloader.bin: src/bootloader.asm
-	nasm src/bootloader.asm -f bin -o build/bootloader.bin
+build/bootloader.tmp: src/bootloader.asm
+	nasm src/bootloader.asm -f bin -o build/bootloader.tmp
 
-build/stage2.o: src/stage2.asm
-	nasm src/stage2.asm -f elf -o build/stage2.o
 
-build/kernel.o: src/kernel.c
-	/home/andrew/opt/cross/bin/i686-elf-gcc -ffreestanding -m32 -c "src/kernel.c" -o "build/kernel.o"
+build/extended.tmp: src/asm/extended.asm
+	nasm src/asm/extended.asm -f bin -o build/extended.tmp
 
 clean:
 	rm -rf build/*

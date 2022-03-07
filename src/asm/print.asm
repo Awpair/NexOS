@@ -42,3 +42,12 @@ hexloop:
         mov si, outstr16
         call sprint
         ret
+
+ypos db 0
+xpos db 0
+
+hexstr db '0123456789ABCDEF'
+
+outstr16 db '0000', 0
+reg16 dw 0
+msg db "Hello, world!", 0

@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Mar  3 16:03:12 2022
+# Make data base, printed on Sat Mar  5 17:33:31 2022
 
 # Variables
 
@@ -17,7 +17,7 @@ LC_ALL = C
 # environment
 NO_AT_BRIDGE = 1
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-fbc26382-00d4-4ffd-b9c3-8c9e621a3280.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-326e737d-6654-4c95-9a7f-b04d06c742dc.sock
 # environment
 VSCODE_CWD = /home/andrew
 # environment
@@ -31,6 +31,7 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
 .VARIABLES := 
 # environment
+ 
 PWD = /home/andrew/Projects/osdev/bootloader
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
@@ -83,7 +84,7 @@ ZSH = /home/andrew/.oh-my-zsh
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 62039
+VSCODE_PID = 52863
 # environment
 XDG_SESSION_TYPE = tty
 # automatic
@@ -123,7 +124,7 @@ MOTD_SHOWN = pam
 # automatic
 ^F = $(notdir $^)
 # environment
-INVOCATION_ID = d4d3f11ae18146f8917043a658288983
+INVOCATION_ID = d08a5d020e3f46e8885829644d17cfcb
 # environment
 VSCODE_LOG_NATIVE = false
 # automatic
@@ -147,7 +148,7 @@ XDG_VTNR = 1
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 813
+SYSTEMD_EXEC_PID = 710
 # environment
 DISPLAY = :0
 # environment
@@ -187,7 +188,7 @@ ELECTRON_NO_ATTACH_CONSOLE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink guile load
 # variable set hash-table stats:
-# Load=88/1024=9%, Rehash=0, Collisions=4/121=3%
+# Load=88/1024=9%, Rehash=0, Collisions=4/118=3%
 
 # Pattern-specific Variable Values
 
@@ -195,7 +196,7 @@ ELECTRON_NO_ATTACH_CONSOLE = 1
 
 # Directories
 
-# . (device 40, inode 4131341): 8 files, no impossibilities.
+# . (device 41, inode 4131341): 8 files, no impossibilities.
 
 # 8 files, no impossibilities in 1 directories.
 
@@ -207,9 +208,10 @@ ELECTRON_NO_ATTACH_CONSOLE = 1
 
 # Not a target:
 src/stage2.asm:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-03-01 19:14:14.43338871
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 Makefile:
@@ -227,16 +229,18 @@ clean:
 
 build/kernel.o: src/kernel.c
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-03-02 18:58:36.801895919
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 14):
 	/home/andrew/opt/cross/bin/i686-elf-gcc -ffreestanding -m32 -c "src/kernel.c" -o "build/kernel.o"
 
 # Not a target:
 src/kernel.c:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-03-01 19:14:10.761319207
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 .DEFAULT:
@@ -249,14 +253,13 @@ all: build/bootloader.bin build/kernel.bin
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
+#  Successfully updated.
 
 build/kernel.bin: build/stage2.o build/kernel.o
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-03-02 18:58:36.905897844
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 4):
 	/home/andrew/opt/cross/bin/i686-elf-ld -o build/kernel.tmp -Ttext 0x7e00 build/stage2.o build/kernel.o
 	objcopy -O binary build/kernel.tmp build/kernel.bin
@@ -264,53 +267,28 @@ build/kernel.bin: build/stage2.o build/kernel.o
 # Not a target:
 src/bootloader.asm:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-02 23:05:25.045989355
+#  Last modified 2022-03-03 16:56:29.410210119
 #  File has been updated.
 #  Successfully updated.
 
 build/bootloader.bin: src/bootloader.asm
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: ''
-#  Last modified 2022-03-02 19:51:16.524352375
+#  Last modified 2022-03-03 16:56:31.154240607
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := build/bootloader.bin
-# automatic
-# * := 
- 
-# automatic
-# < := src/bootloader.asm
-# automatic
-# + := src/bootloader.asm
-# automatic
-# % := 
-# automatic
-# ^ := src/bootloader.asm
-# automatic
-# ? := src/bootloader.asm
-# automatic
-# | := 
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 8):
 	nasm src/bootloader.asm -f bin -o build/bootloader.bin
 
-# Not a target:
-.SUFFIXES:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
 build/stage2.o: src/stage2.asm
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2022-03-02 09:20:45.105384884
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 11):
 	nasm src/stage2.asm -f elf -o build/stage2.o
 
 # files hash-table stats:
-# Load=12/1024=1%, Rehash=0, Collisions=0/35=0%
+# Load=12/1024=1%, Rehash=0, Collisions=0/34=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
@@ -320,9 +298,9 @@ build/stage2.o: src/stage2.asm
 # strcache buffers: 1 (0) / strings = 21 / storage = 224 B / avg = 10 B
 # current buf: size = 8162 B / used = 224 B / count = 21 / avg = 10 B
 
-# strcache performance: lookups = 37 / hit rate = 43%
+# strcache performance: lookups = 36 / hit rate = 41%
 # hash-table stats:
-# Load=21/8192=0%, Rehash=0, Collisions=0/37=0%
-# Finished Make data base on Thu Mar  3 16:03:12 2022
+# Load=21/8192=0%, Rehash=0, Collisions=0/36=0%
+# Finished Make data base on Sat Mar  5 17:33:31 2022
 
  
