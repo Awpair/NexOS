@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Mar  5 17:33:31 2022
+# Make data base, printed on Mon Mar  7 00:04:44 2022
 
 # Variables
 
@@ -17,7 +17,7 @@ LC_ALL = C
 # environment
 NO_AT_BRIDGE = 1
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-326e737d-6654-4c95-9a7f-b04d06c742dc.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-9446dcb7-7a91-4c2b-b3dc-2f951f4b0c51.sock
 # environment
 VSCODE_CWD = /home/andrew
 # environment
@@ -31,7 +31,6 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
 .VARIABLES := 
 # environment
- 
 PWD = /home/andrew/Projects/osdev/bootloader
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
@@ -63,6 +62,7 @@ MAKEFLAGS = pqrR
 CURDIR := /home/andrew/Projects/osdev/bootloader
 # environment
 VSCODE_PIPE_LOGGING = true
+ 
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # automatic
@@ -84,7 +84,7 @@ ZSH = /home/andrew/.oh-my-zsh
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 52863
+VSCODE_PID = 919
 # environment
 XDG_SESSION_TYPE = tty
 # automatic
@@ -124,7 +124,7 @@ MOTD_SHOWN = pam
 # automatic
 ^F = $(notdir $^)
 # environment
-INVOCATION_ID = d08a5d020e3f46e8885829644d17cfcb
+INVOCATION_ID = c470f5e7b5104e45a9281ee3dc42bfe4
 # environment
 VSCODE_LOG_NATIVE = false
 # automatic
@@ -148,7 +148,7 @@ XDG_VTNR = 1
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 710
+SYSTEMD_EXEC_PID = 713
 # environment
 DISPLAY = :0
 # environment
@@ -188,7 +188,7 @@ ELECTRON_NO_ATTACH_CONSOLE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink guile load
 # variable set hash-table stats:
-# Load=88/1024=9%, Rehash=0, Collisions=4/118=3%
+# Load=88/1024=9%, Rehash=0, Collisions=4/121=3%
 
 # Pattern-specific Variable Values
 
@@ -206,17 +206,50 @@ ELECTRON_NO_ATTACH_CONSOLE = 1
 
 # Files
 
+build/extended.tmp: src/asm/extended.asm
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 11):
+	nasm src/asm/extended.asm -f bin -o build/extended.tmp
+
 # Not a target:
-src/stage2.asm:
-#  Implicit rule search has been done.
-#  Last modified 2022-03-01 19:14:14.43338871
+src/asm/extended.asm:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+build/bootloader.tmp: src/bootloader.asm
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
+#  Last modified 2022-03-06 21:39:52.536026625
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := build/bootloader.tmp
+# automatic
+# * := 
+# automatic
+# < := src/bootloader.asm
+# automatic
+# + := src/bootloader.asm
+# automatic
+# % := 
+# automatic
+# ^ := src/bootloader.asm
+# automatic
+# ? := src/bootloader.asm
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from 'Makefile', line 7):
+	nasm src/bootloader.asm -f bin -o build/bootloader.tmp
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-02 18:58:34.582854857
+#  Last modified 2022-03-06 20:38:40.655481293
 #  File has been updated.
 #  Successfully updated.
 
@@ -224,23 +257,8 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 17):
-	rm -rf build/*
-
-build/kernel.o: src/kernel.c
-#  Implicit rule search has not been done.
-#  Last modified 2022-03-02 18:58:36.801895919
-#  File has been updated.
-#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 14):
-	/home/andrew/opt/cross/bin/i686-elf-gcc -ffreestanding -m32 -c "src/kernel.c" -o "build/kernel.o"
-
-# Not a target:
-src/kernel.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-03-01 19:14:10.761319207
-#  File has been updated.
-#  Successfully updated.
+	rm -rf build/*
 
 # Not a target:
 .DEFAULT:
@@ -248,59 +266,53 @@ src/kernel.c:
 #  Modification time never checked.
 #  File has not been updated.
 
-all: build/bootloader.bin build/kernel.bin
+all: build/bootloader.bin
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
-#  Successfully updated.
-
-build/kernel.bin: build/stage2.o build/kernel.o
-#  Implicit rule search has not been done.
-#  Last modified 2022-03-02 18:58:36.905897844
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 4):
-	/home/andrew/opt/cross/bin/i686-elf-ld -o build/kernel.tmp -Ttext 0x7e00 build/stage2.o build/kernel.o
-	objcopy -O binary build/kernel.tmp build/kernel.bin
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
 
 # Not a target:
 src/bootloader.asm:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-03 16:56:29.410210119
+#  Last modified 2022-03-06 22:08:17.867796753
 #  File has been updated.
 #  Successfully updated.
 
-build/bootloader.bin: src/bootloader.asm
+build/bootloader.bin: build/bootloader.tmp build/extended.tmp
 #  Implicit rule search has not been done.
-#  Last modified 2022-03-03 16:56:31.154240607
+ 
+#  Last modified 2022-03-06 21:39:52.539026671
 #  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 8):
-	nasm src/bootloader.asm -f bin -o build/bootloader.bin
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
+#  recipe to execute (from 'Makefile', line 4):
+	cat build/bootloader.tmp build/extended.tmp > build/bootloader.bin
 
-build/stage2.o: src/stage2.asm
+# Not a target:
+.SUFFIXES:
 #  Implicit rule search has not been done.
-#  Last modified 2022-03-02 09:20:45.105384884
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 11):
-	nasm src/stage2.asm -f elf -o build/stage2.o
+#  Modification time never checked.
+#  File has not been updated.
 
 # files hash-table stats:
-# Load=12/1024=1%, Rehash=0, Collisions=0/34=0%
+# Load=10/1024=1%, Rehash=0, Collisions=0/30=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 21 / storage = 224 B / avg = 10 B
-# current buf: size = 8162 B / used = 224 B / count = 21 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 19 / storage = 210 B / avg = 11 B
+# current buf: size = 8162 B / used = 210 B / count = 19 / avg = 11 B
 
-# strcache performance: lookups = 36 / hit rate = 41%
+# strcache performance: lookups = 33 / hit rate = 42%
 # hash-table stats:
-# Load=21/8192=0%, Rehash=0, Collisions=0/36=0%
-# Finished Make data base on Sat Mar  5 17:33:31 2022
+# Load=19/8192=0%, Rehash=0, Collisions=0/33=0%
+# Finished Make data base on Mon Mar  7 00:04:44 2022
 
  

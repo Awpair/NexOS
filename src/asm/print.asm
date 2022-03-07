@@ -50,4 +50,3 @@ hexstr db '0123456789ABCDEF'
 
 outstr16 db '0000', 0
 reg16 dw 0
-msg db "Hello, world!", 0

@@ -7,7 +7,7 @@ build/bootloader.tmp: src/bootloader.asm
 	nasm src/bootloader.asm -f bin -o build/bootloader.tmp
 
 
-build/extended.tmp: src/asm/extended.asm
+build/extended.tmp: src/asm/extended.asm src/asm/gdt.asm
 	nasm src/asm/extended.asm -f bin -o build/extended.tmp
 
 clean:
